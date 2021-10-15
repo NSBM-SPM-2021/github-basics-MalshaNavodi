@@ -12,6 +12,10 @@ const addContacts = () => ({
     type: types.ADD_CONTACT,
 });
 
+const deleteContact = () => ({
+    type: types.DELETE_CONTACTS,
+});
+
 export const getContactsInitiate = () => {
     return function(dispatch){
         db.collection("contacts").onSnapshot((querySnapshot) => {
@@ -28,5 +32,12 @@ export const addContactInitiate = (contact) => {
     return function (dispatch){
         db.collection("contacts").doc().set(contact);
         dispatch(addContacts());
+    };
+};
+
+export const deleteContactInitiate = (id) => {
+    return function (dispatch){
+        db.collection("contacts").doc(id).delete();
+        dispatch(deleteContact());
     };
 };

@@ -1,8 +1,8 @@
-import { MDBCol, MDBContainer, MDBRow, MDBInput, MDBBtn, MDBTypography, MDBTable, MDBTableHead, MDBTableBody} from 'mdb-react-ui-kit';
+import { MDBIcon, MDBCol, MDBContainer, MDBRow, MDBInput, MDBBtn, MDBTypography, MDBTable, MDBTableHead, MDBTableBody} from 'mdb-react-ui-kit';
 import React, { useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core';
 import { useDispatch, useSelector} from "react-redux";
-import { addContactInitiate, getContactsInitiate } from './redux/actions';
+import { addContactInitiate, deleteContactInitiate, getContactsInitiate  } from './redux/actions';
 
 
 const initialState ={
@@ -41,6 +41,12 @@ const handleInputChange = (e) => {
     let { name,value } = e.target;
     setStatus({ ...state, [name]: value});
 };
+
+const deleteContact = (id) => {
+    if(window.confirm("Are you sure that you want to delete ?")){
+        dispatch(deleteContactInitiate(id));
+    }
+};
 const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addContactInitiate(state));
@@ -70,7 +76,15 @@ const handleSubmit = (e) => {
                 <td>{item.email}</td>
                 <td>{item.contact}</td>
                 <td>{item.address}</td>
-                <td></td>
+                <td> <MDBBtn 
+                        className= "m-1" 
+                        tag="a" color="none" 
+                        style={{color : "#dd4b39"}} 
+                        onClick={() => deleteContact(item.id)}>
+
+                        <MDBIcon fas icon="trash" size="lg" />
+                        
+                    </MDBBtn></td>
             
               </tr>
                 </MDBTableBody>

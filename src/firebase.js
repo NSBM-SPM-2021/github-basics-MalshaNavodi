@@ -2,12 +2,12 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD7EHyqD1llHodJGjZSQxzMsZRsFjUc9-s",
-  authDomain: "contacts-db-a8463.firebaseapp.com",
-  projectId: "contacts-db-a8463",
-  storageBucket: "contacts-db-a8463.appspot.com",
-  messagingSenderId: "859945755498",
-  appId: "1:859945755498:web:70cf039b8aa2b0d5237b13"
+  apiKey: "AIzaSyDgHwPtW_l2PJoYjus2vrMTIsdZ9YClHL4",
+  authDomain: "contact-info-32669.firebaseapp.com",
+  projectId: "contact-info-32669",
+  storageBucket: "contact-info-32669.appspot.com",
+  messagingSenderId: "1021439660824",
+  appId: "1:1021439660824:web:9695825793eb7c9fc4c46d"
 };
 
 
